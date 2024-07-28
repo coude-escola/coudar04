@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Api;
+use App\Middleware\JsonBodyParserMiddleware;
 use Slim\Routing\RouteCollectorProxy as Group;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -8,24 +9,17 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class Main{
   public function main(Group $group){
 
-    $group->get('[/]', Main::class . ':person');
+    $group->post('[/]', Main::class . ':coleta')->add(new JsonBodyParserMiddleware);
 
-    
-    $group->group('/empresa', Empresa::class . ':main');
 
   }
 
-  public function person(Request $req, Response $res){
-    $data = [
-      "nome"      => 'Zerrai Mundo',
-      "idade"     => 63,
-      "profissao" => 'aposentado',
-      "hobby"     => 'jazz anos 80',
-    ];
+  public function coleta(Request $req, Response $res){
 
-    $res->getBody()->write(json_encode($data));
 
-    return $res;
+    $res->getBody()->write(json_encode(["mensagem" => "Dados Recebidos"]));
+
+    return $res->withHeader("Content-Type","application/json");
   }
 
   
