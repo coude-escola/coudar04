@@ -12,10 +12,10 @@ class Main{
 
   public function person(Request $req, Response $res){
     $data = [
-      "nome"      => 'Zerrai Mundo',
-      "idade"     => 63,
-      "profissao" => 'aposentado',
-      "hobby"     => 'jazz anos 80',
+      "enterprise"      => 'Zerrai Mundo',
+      "sector"     => 63,
+      "email" => 'aposentado',
+      "documentNumber"     => 'jazz anos 80',
     ];
 
     $res->getBody()->write(json_encode($data));
