@@ -7,7 +7,12 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class Main{
   public function main(Group $group){
+
     $group->get('[/]', Main::class . ':person');
+
+    
+    $group->group('/empresa', Empresa::class . ':main');
+
   }
 
   public function person(Request $req, Response $res){
@@ -22,4 +27,6 @@ class Main{
 
     return $res;
   }
+
+  
 }
