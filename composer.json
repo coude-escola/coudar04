@@ -20,6 +20,7 @@
         "nyholm/psr7-server": "^1.1",
         "guzzlehttp/psr7": "^2",
         "laminas/laminas-diactoros": "^2.14",
-        "guzzlehttp/guzzle": "^7.9"
+        "guzzlehttp/guzzle": "^7.9",
+        "php-curl-class/php-curl-class": "^9.19"
     }
   }

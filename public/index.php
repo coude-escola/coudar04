@@ -15,9 +15,6 @@
 
   $app->post('/api/forms', FormsCrontroller::class .":forms")->add(new JsonBodyParserMiddleware());
 
-
-  // $app->group('/api', ApiRoutes::class . ':main');
-
   $app->addRoutingMiddleware();
 
   $errorMiddleware = $app->addErrorMiddleware(true, true, true);
